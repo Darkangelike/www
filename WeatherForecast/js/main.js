@@ -37,8 +37,7 @@ const JSONlist = {"coord":{"lon":2.3488,"lat":48.8534},
  **************************************/
 
  function getWeather() {
-     let cityName = document.querySelector("#ville").value
-     document.querySelector("#ville").value = "Paris"
+     let cityName = $("#ville").value
      getJSON(JSONlist)
     //  callJSON(`http://api.openweathermap.org/data/2.5/weather?q=${cityName}&units=metric&lang=fr&appid=${apiKey}`, getJSON)
  }
@@ -57,32 +56,32 @@ const JSONlist = {"coord":{"lon":2.3488,"lat":48.8534},
  }
 
  
-//  /*************************************
-//  ****      FUNCTION GET JSON      *****
-//  **************************************/
-
-//  function getJSON(JSONlist) {
-//      document.querySelector("article").classList.remove("hide")
-//      document.querySelector("article h2 strong").insertAdjacentHTML("beforeend", `${document.querySelector("#ville").value}`)
-//      document.querySelector("article h2 sup").innerHTML = `${JSONlist.country}`
-
-//      document.querySelector("article p strong").insertAdjacentHTML("beforeend", `${JSONlist.main.temp}`)
-
-
-//  }
-
  /*************************************
  ****      FUNCTION GET JSON      *****
  **************************************/
 
  function getJSON(JSONlist) {
-     document.querySelector("article").classList.remove("hide")
-     document.querySelector("article h2 strong").insertAdjacentHTML("beforeend", `${document.querySelector("#ville").value}`);
-     document.querySelector("article h2 sup").innerHTML = `${JSONlist.sys.country}`
+     $("article").removeClass("hide")
+     $("article h2 strong").append(`${$("#ville").value}`)
+     $("article h2 sup").text(`${JSONlist.country}`)
 
-     document.querySelector("article p strong").insertAdjacentHTML("beforeend", `${JSONlist.main.temp}`)
-    document.querySelector("article div img").src=`img/${JSONlist.weather[0].icon}.png`
-    document.querySelector("article div small").innerHTML = `${JSONlist.weather[0].description}`
+     $("article p strong").append(`${JSONlist.main.temp}`)
+
+
+ }
+
+ /*************************************
+ ****   FUNCTION GET JSON PARIS   *****
+ **************************************/
+
+ function getJSON(JSONlist) {
+     $("article").removeClass("hide")
+     $("article h2 strong").append(`${JSONlist.name}`);
+     $("article h2 sup").text(`${JSONlist.sys.country}`)
+
+     $("article p strong").append(`${JSONlist.main.temp}`)
+    $("article div img").attr("src",`img/${JSONlist.weather[0].icon}.png`)
+    $("article div small").text(`${JSONlist.weather[0].description}`)
  }
 
  /*************************************
@@ -95,7 +94,7 @@ function search(tobeFind, list) {
     })
 }
 
- document.addEventListener("DOMContentLoaded", function() {
+ $(document).ready(function() {
      
      
 /***************************************************
@@ -112,7 +111,7 @@ function search(tobeFind, list) {
 ****************************************************
 ****************************************************/
 
-document.querySelector("#submit").addEventListener("click", getWeather)
+$("#submit").on("click", getWeather)
 
  })
 
