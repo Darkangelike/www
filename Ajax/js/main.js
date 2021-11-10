@@ -39,7 +39,6 @@ const target = document.querySelector("#target")
          break;
      }
  }
-
  
  /*************************************
  ****   FUNCTION AJAX CALL HTML   *****
@@ -64,7 +63,6 @@ const target = document.querySelector("#target")
      .then(datas => functionCallback(datas))
      .catch(error => alert("Erreur : " + error));
  }
-
  
  /*************************************
  ****   FUNCTION AJAX GET HTML    *****
@@ -73,7 +71,6 @@ const target = document.querySelector("#target")
  function ajaxGetHTML(html) {
      target.innerHTML = html;
  }
-
 
  /*************************************
  ****   FUNCTION AJAX GET JSON    *****
@@ -91,7 +88,6 @@ function ajaxGetJSON(JSONlist) {
     html += "</ul>"
     target.innerHTML = html;
 }
-
 
  /*************************************
  ****   FUNCTION AJAX GET JSON2   *****
@@ -113,7 +109,6 @@ function ajaxGetJSON2(JSONlist) {
     target.innerHTML = html;
 }
 
-
 /***************************************************
 ****************************************************
 ********************** CODE ************************
@@ -122,7 +117,6 @@ function ajaxGetJSON2(JSONlist) {
 
 document.addEventListener("DOMContentLoaded", function() {
 
-    
 /***************************************************
 ****************************************************
 ********************** EVENTS **********************
