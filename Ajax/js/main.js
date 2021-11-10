@@ -27,7 +27,7 @@ const target = document.querySelector("#target")
          break;
 
          case 2:
-         ajaxCallHTML("php/2-get-json-data.php", ajaxGetJSON)        
+         ajaxCallJSON("php/2-get-json-data.php", ajaxGetJSON)        
          break;
 
          case 3:
@@ -35,7 +35,7 @@ const target = document.querySelector("#target")
          break;
 
          case 4:
-         ajaxCallHTML("php/4-get-json-movies.php", ajaxGetJSON2)        
+         ajaxCallJSON("php/4-get-json-movies.php", ajaxGetJSON2)        
          break;
      }
  }
@@ -57,7 +57,7 @@ const target = document.querySelector("#target")
 
  function ajaxCallJSON (url, functionCallback) {
      fetch(url)
-     .then(response => response.JSON())
+     .then(response => response.json())
      .then(datas => functionCallback(datas))
      .catch(error => alert("Erreur : " + error));
  }
@@ -76,8 +76,7 @@ const target = document.querySelector("#target")
 
 function ajaxGetJSON(JSONlist) {
     let html = "<ul>";
-    let list = JSON.parse(JSONlist)
-    list.forEach(item => {
+    JSONlist.forEach(item => {
         html += `<li><b>First name :</b> ${item.firstName}</li><br>
         <li><i>Téléphone : </i>${item.phone}</li><br>`
     })
@@ -90,11 +89,9 @@ function ajaxGetJSON(JSONlist) {
  ****   FUNCTION AJAX GET JSON2   *****
  **************************************/
 
-
 function ajaxGetJSON2(JSONlist) {
     let html = `<ul class="movie-list">`;
-    let list = JSON.parse(JSONlist)
-    list.forEach(item => {
+    JSONlist.forEach(item => {
         html += `<li><img src="images/${item.cover}">
         <p><b>${item.title}</b> - <i>${item.duration}</i></p></li>`
     })
