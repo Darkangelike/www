@@ -25,7 +25,6 @@ const apiKey = "252a60c1eee730a732d9cc8f6b59f6c9"
      }
  }
 
- 
  /*************************************
  ******   FUNCTION CALL JSON    *******
  **************************************/
@@ -52,7 +51,6 @@ const apiKey = "252a60c1eee730a732d9cc8f6b59f6c9"
     $("article div small").text(`${JSONlist.weather[0].description}`)
  }
 
- 
  /*************************************
  ****      FUNCTION IS EMPTY      *****
  **************************************/
@@ -66,7 +64,6 @@ const apiKey = "252a60c1eee730a732d9cc8f6b59f6c9"
     }
      return empty
  }
-
 
 /***************************************************
 ****************************************************
@@ -85,4 +82,3 @@ const apiKey = "252a60c1eee730a732d9cc8f6b59f6c9"
 $("#submit").on("click", search)
 
  })
-
